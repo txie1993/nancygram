@@ -6,6 +6,7 @@
 //   user     display name (default "nancy")
 //   caption  text under the post
 //   likes    starting like count (default 0)
+//   avatar   URL of a profile picture for `user` (default: colored letter circle)
 //   poster   thumbnail URL for a video
 //   credit   URL for a "credit" link (omit to hide it)
 //   priority number; posts with one show first, lowest number on top (1 = very first).

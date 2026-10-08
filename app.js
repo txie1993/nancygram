@@ -51,6 +51,12 @@ function renderPost(p, i) {
   const head = el("div", "post-head");
   const avatar = el("div", "avatar", p.user[0].toUpperCase());
   avatar.style.background = colors[i % colors.length];
+  if (p.avatar) {
+    const img = el("img", "avatar-img");
+    img.alt = "";
+    img.onload = () => avatar.replaceChildren(img);
+    img.src = p.avatar; // on error the letter avatar stays
+  }
   head.append(avatar, el("span", null, p.user));
 
   let media;

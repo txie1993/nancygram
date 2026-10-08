@@ -24,6 +24,6 @@ Append an object to `extra` in `posts.js`. Only `src` is required (any image or 
 
     { src: "https://i.imgur.com/abc123.jpg", user: "nancy", caption: "hi", likes: 12 },
 
-Optional fields: `type`, `user`, `caption`, `likes`, `poster`, `credit`, `priority`, `file`.
+Optional fields: `type`, `user`, `caption`, `likes`, `avatar`, `poster`, `credit`, `priority`, `file`.
 Add `priority: 1` (or 2, 3, ...) to pin a post to the top of the feed; the rest are shuffled on every load. See the comment at the top of `posts.js`.
 Imgur direct links are sometimes blocked when hotlinked from other sites; Commons is the default for that reason.
