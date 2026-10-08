@@ -59,7 +59,6 @@ function renderPost(p, i) {
     media.src = p.src;
     media.muted = true;
     media.setAttribute("muted", "");
-    media.autoplay = true;
     media.loop = true;
     media.playsInline = true;
     media.preload = "auto";
@@ -68,7 +67,8 @@ function renderPost(p, i) {
     // Retry once data arrives in case play() fired before the video could start.
     media.addEventListener("canplay", () => {
       const r = media.getBoundingClientRect();
-      if (r.top < innerHeight && r.bottom > 0) media.play().catch(() => {});
+      const visible = Math.min(r.bottom, innerHeight) - Math.max(r.top, 0);
+      if (visible >= r.height * 0.4) media.play().catch(() => {});
     });
     players.observe(media);
   } else {
