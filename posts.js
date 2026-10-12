@@ -74,7 +74,13 @@ const puppies = [
 
 // Add your own posts here (see the field list above).
 const extra = [
-  video("judy.zhu", "https://pub-b6fad5b4ff794da4b1c5e144f8e7142b.r2.dev/nancygram/1000020439.mp4", "a message from Judy!", 1012, priority=1),
+  {
+    src: "https://pub-b6fad5b4ff794da4b1c5e144f8e7142b.r2.dev/nancygram/1000020439.mp4",
+    user: "judy.zhu",
+    caption: "a message from Judy!",
+    likes: 1012,
+    priority: 1,
+  },
 ];
 
 window.POSTS = [...cats, ...puppies, ...extra];
