@@ -9,9 +9,28 @@ const el = (tag, cls, text) => {
   return n;
 };
 
+// Sound is shared across videos like Instagram. We always try to play with sound
+// first; browsers usually block that until the user has clicked or tapped the page,
+// so the video falls back to muted and plays with sound once the user unmutes it.
+let soundOn = true;
+
+const playVideo = (v) => {
+  v._expectedMuted = !soundOn;
+  v.muted = !soundOn;
+  v.play().catch(() => {
+    // Unmuted playback was blocked: play muted. soundOn stays true so the next
+    // video tries sound again (it will work after the user has interacted).
+    if (soundOn) {
+      v._expectedMuted = true;
+      v.muted = true;
+      v.play().catch(() => {});
+    }
+  });
+};
+
 const players = new IntersectionObserver((entries) => {
   for (const e of entries) {
-    if (e.isIntersecting) e.target.play().catch(() => {});
+    if (e.isIntersecting) playVideo(e.target);
     else e.target.pause();
   }
 }, { threshold: 0.4 });
@@ -70,11 +89,16 @@ function renderPost(p, i) {
     media.preload = "auto";
     media.controls = true;
     if (p.poster) media.poster = p.poster;
+    media.addEventListener("volumechange", () => {
+      if (media.muted === media._expectedMuted) return; // our own change
+      media._expectedMuted = media.muted;
+      soundOn = !media.muted; // the user toggled it in the player controls
+    });
     // Retry once data arrives in case play() fired before the video could start.
     media.addEventListener("canplay", () => {
       const r = media.getBoundingClientRect();
       const visible = Math.min(r.bottom, innerHeight) - Math.max(r.top, 0);
-      if (visible >= r.height * 0.4) media.play().catch(() => {});
+      if (visible >= r.height * 0.4) playVideo(media);
     });
     players.observe(media);
   } else {

@@ -75,10 +75,59 @@ const puppies = [
 // Add your own posts here (see the field list above).
 const extra = [
   {
-    src: "https://pub-b6fad5b4ff794da4b1c5e144f8e7142b.r2.dev/nancygram/1000020439.mp4",
+    src: "https://pub-b6fad5b4ff794da4b1c5e144f8e7142b.r2.dev/encoded/nancygram_1000020439.mp4",
     user: "judy.zhu",
     caption: "a message from Judy!",
     likes: 1012,
+    priority: 1,
+  },
+  {
+    src: "https://pub-b6fad5b4ff794da4b1c5e144f8e7142b.r2.dev/encoded/nancygram_video_20261011180840.mp4",
+    user: "ec.li",
+    caption: "a message from Yisi and Juju!",
+    likes: 2026,
+    priority: 1,
+  },
+  {
+    src: "https://pub-b6fad5b4ff794da4b1c5e144f8e7142b.r2.dev/encoded/nancygram_video_20261011180845.mp4",
+    user: "david.liu",
+    caption: "a message from David and Juju!",
+    likes: 2026,
+    priority: 1,
+  },
+  {
+    src: "https://pub-b6fad5b4ff794da4b1c5e144f8e7142b.r2.dev/encoded/nancygram_IMG_5063.mp4",
+    user: "silvia.liu",
+    caption: "a message from Silvia (1/2)!",
+    likes: 1995,
+    priority: 1,
+  },
+  {
+    src: "https://pub-b6fad5b4ff794da4b1c5e144f8e7142b.r2.dev/encoded/nancygram_IMG_5064.mp4",
+    user: "silvia.liu",
+    caption: "a message from Silvia (2/2)!",
+    likes: 1012,
+    priority: 2,
+  },
+  {
+    src: "https://pub-b6fad5b4ff794da4b1c5e144f8e7142b.r2.dev/encoded/nancygram_video_20261010221753.mp4",
+    user: "sukeerti",
+    caption: "a message from Sukeerti (1/2)!",
+    likes: 1995,
+    priority: 1,
+  },
+  {
+    src: "https://pub-b6fad5b4ff794da4b1c5e144f8e7142b.r2.dev/encoded/nancygram_video_20261010221755.mp4",
+    user: "sukeerti",
+    caption: "a message from Sukeerti (2/2)!",
+    likes: 1012,
+    priority: 2,
+  },
+  {
+    src: "https://pub-b6fad5b4ff794da4b1c5e144f8e7142b.r2.dev/encoded/nancygram_video_20261011180851.mp4",
+    user: "emily.and.jeff",
+    caption: "a message from Emily and Jeff and the chinchillas!",
+    likes: 1995,
     priority: 1,
   },
 ];
